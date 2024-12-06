@@ -161,5 +161,55 @@ In your browser, now type in `http://yourhost/jbrowse2/`, where yourhost is eith
 
 ## 4. Load and process test data
 ### 4.1. Download and process reference genome
+Make sure you are in the temporary folder you created, then download the Influenza A H3N2 genome in fasta format. The instructions below will start with the 2015 file and repeat for the remaining files similarly.
 
+```
+export FASTA_ROOT=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/771/805/
+wget $FASTA_ROOT/GCA_038771805.1_ASM3877180v1/GCA_038771805.1_ASM3877180v1_genomic.fna.gz
+```
 
+Unzip the gzipped reference genome, rename it, and index it. This will allow jbrowse to rapidly access any part of the reference just by coordinate.
+
+```
+gunzip GCA_038771805.1_ASM3877180v1_genomic.fna.gz
+mv GCA_038771805.1_ASM3877180v1_genomic.fna H3N2_2015.fna
+samtools faidx H3N2_2015.fna
+```
+
+### 4.3. Load genome into jbrowse
+
+```
+jbrowse add-assembly H3N2_2015.fna --out $APACHE_ROOT/jbrowse2 --load copy
+```
+## 4.4. Download and process genome annotations
+
+Still in the temporary folder, download ENSEMBLE genome annotations in the GFF3 format. 
+
+```
+export GFF_ROOT=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/771/805/GCA_038771805.1_ASM3877180v1/
+wget $GFF_ROOT/GCA_038771805.1_ASM3877180v1_genomic.gff.gz
+gunzip GCA_038771805.1_ASM3877180v1_genomic.gff.gz
+```
+Use jbrowse to sort the annotations. jbrowse sort-gff sorts the GFF3 by refName (first column) and start position (fourth column), while making sure to preserve the header lines at the top of the file (which start with “#”). We then compress the GFF with bgzip (block gzip, which zips files into little blocks for rapid access), and index with tabix. The tabix command outputs a file named genes.gff.gz.tbi in the same directory, and we then refer to “genes.gff.gz” as a “tabix indexed GFF3 file”.
+
+```
+jbrowse sort-gff GCA_038771805.1_ASM3877180v1_genomic.gff > genes.gff
+bgzip genes.gff
+tabix genes.gff.gz
+```
+
+### 4.5. Load annotation track into jbrowse
+
+```
+jbrowse add-track genes.gff.gz --out $APACHE_ROOT/jbrowse2 --load copy
+```
+
+### 4.6. Index for search-by-gene
+
+Run the “jbrowse text-index” command to allow users to search by gene name within JBrowse 2.
+
+In the temporary work directory, run the following command.
+
+```
+jbrowse text-index --out $APACHE_ROOT/jbrowse2
+```
