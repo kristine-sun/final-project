@@ -94,76 +94,6 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
         "Indexing for search-by-gene"
     )
 
-# def process_genome(fasta_url, gff_url, output_dir, strain, date):
-#     """Download, process, and load genome data for JBrowse."""
-#     # Step 1: Download and process reference genome
-#     fasta_file = f"GCA_{date}_genomic.fna.gz"
-#     fasta_unzipped = f"{strain}_{date}.fna"
-
-#     run_command(
-#         f"wget {fasta_url} -O {fasta_file}",
-#         "Downloading reference genome"
-#     )
-#     run_command(
-#         f"gunzip {fasta_file}",
-#         "Unzipping reference genome"
-#     )
-#     run_command(
-#         f"mv {fasta_file[:-3]} {fasta_unzipped}",
-#         "Renaming reference genome"
-#     )
-#     run_command(
-#         f"samtools faidx {fasta_unzipped}",
-#         "Indexing reference genome"
-#     )
-
-#     # Step 2: Load genome into the same assembly in JBrowse
-#     jbrowse_out = os.path.join(output_dir, "jbrowse2")
-    
-#     # Use the same assembly name for all genomes (e.g., 'all_genomes_assembly')
-#     run_command(
-#         f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy --name all_genomes_assembly",
-#         "Loading genome into the same assembly"
-#     )
-
-#     # Step 3: Download and process genome annotations
-#     gff_file = f"GCA_{date}_genomic.gff.gz"
-#     gff_processed = f"{date}_genes.gff"
-#     gff_bgzip = f"{gff_processed}.gz"
-
-#     run_command(
-#         f"wget {gff_url} -O {gff_file}",
-#         "Downloading genome annotations"
-#     )
-#     run_command(
-#         f"gunzip {gff_file}",
-#         "Unzipping genome annotations"
-#     )
-#     run_command(
-#         f"jbrowse sort-gff {gff_file[:-3]} > {gff_processed}",
-#         "Sorting genome annotations"
-#     )
-#     run_command(
-#         f"bgzip {gff_processed}",
-#         "Compressing sorted annotations with bgzip"
-#     )
-#     run_command(
-#         f"tabix {gff_bgzip}",
-#         "Indexing compressed annotations with tabix"
-#     )
-
-#     # Step 4: Load annotation track into the same assembly in JBrowse
-#     run_command(
-#         f"jbrowse add-track {gff_bgzip} --out {jbrowse_out} --load copy --assemblyNames all_genomes_assembly",
-#         "Loading annotation track into the same assembly"
-#     )
-
-#     # Step 5: Index for search-by-gene
-#     run_command(
-#         f"jbrowse text-index --out {jbrowse_out}",
-#         "Indexing for search-by-gene"
-#     )
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Process genomic data.")
     parser.add_argument("--fasta_url", required=True, help="URL to the FASTA file")
@@ -187,4 +117,4 @@ def main():
     )
     
 if __name__ == "__main__":
-     main()
+    main()
