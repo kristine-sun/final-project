@@ -106,9 +106,6 @@ def parse_args():
 #         strain=args.strain,
 #         date=args.date
 #     )
-
-# if __name__ == "__main__":
-#     main()
 def main():
     args = parse_args()
     print(f"Processing genome data for strain {args.strain} from date {args.date}.")
@@ -127,3 +124,6 @@ def main():
     
     # Debugging line to confirm end of process
     print("Genome processing completed.")
+
+ if __name__ == "__main__":
+     main()
