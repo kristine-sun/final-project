@@ -11,8 +11,11 @@ def run_command(command, description):
         subprocess.run(command, shell=True, check=True)
         print("Command executed successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
+        print(f"Error while running: {command}")
+        print(f"Return code: {e.returncode}")
+        print(f"Output: {e.output}")
         exit(1)
+    
 
 def process_genome(fasta_url, gff_url, output_dir, strain, date):
     """Download, process, and load genome data for JBrowse."""
