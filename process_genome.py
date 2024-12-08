@@ -41,7 +41,7 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
 
     # Step 2: Check if assembly already exists
     jbrowse_out = os.path.join(output_dir, "jbrowse2")
-    assembly_name = f"{strain}_{date}"
+    assembly_name = f"{strain}"
 
     # Check if the assembly already exists
     check_assembly_command = f"jbrowse list-assemblies --out {jbrowse_out}"
