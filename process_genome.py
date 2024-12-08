@@ -94,7 +94,7 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
         "Indexing for search-by-gene"
     )
 
-# def process_genome2(fasta_url, gff_url, output_dir, strain, date):
+# def process_genome(fasta_url, gff_url, output_dir, strain, date):
 #     """Download, process, and load genome data for JBrowse."""
 #     # Step 1: Download and process reference genome
 #     fasta_file = f"GCA_{date}_genomic.fna.gz"
@@ -177,8 +177,8 @@ def main():
     args = parse_args()
     print(f"Processing genome data for strain {args.strain} from date {args.date}.")
     
-    # Call the process_genome2 function with the parsed arguments
-    process_genome2(
+    # Call the process_genome function with the parsed arguments
+    process_genome(
         fasta_url=args.fasta_url,
         gff_url=args.gff_url,
         output_dir=args.output_dir,
