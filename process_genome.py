@@ -82,13 +82,31 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
         "Indexing for search-by-gene"
     )
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process and load genome data for JBrowse.")
-    parser.add_argument('--fasta_url', required=True, help="URL of the reference genome (FASTA format).")
-    parser.add_argument('--gff_url', required=True, help="URL of the genome annotations (GFF3 format).")
-    parser.add_argument('--output_dir', default="/var/www/html", help="Output directory for JBrowse data.")
-    parser.add_argument('--strain', required=True, help="strain of Influenza A virus (H1N1, H3N2).")
-    parser.add_argument('--date', required=True, help="date identifier for the genome (e.g., 2015).")
-    args = parser.parse_args()
+def parse_args():
+    parser = argparse.ArgumentParser(description="Process genomic data.")
+    parser.add_argument("--fasta_url", required=True, help="URL to the FASTA file")
+    parser.add_argument("--gff_url", required=True, help="URL to the GFF file")
+    parser.add_argument("--output_dir", default="./", help="Directory for output files")
+    parser.add_argument("--date", required=True, help="Date of the genome data (e.g., 2019_04_30)")
+    parser.add_argument("--strain", required=True, help="Strain of the virus (e.g., H1N1, H3N2)")
+    return parser.parse_args()
 
-    process_genome(args.fasta_url, args.gff_url, args.output_dir, args.strain, args.date)
+def main():
+    args = parse_args()
+    print(f"Processing genome data for strain {args.strain} from date {args.date}.")
+    # Use args.fasta_url, args.gff_url, args.output_dir as needed
+
+if __name__ == "__main__":
+    main()
+
+
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser(description="Process and load genome data for JBrowse.")
+#     parser.add_argument('--fasta_url', required=True, help="URL of the reference genome (FASTA format).")
+#     parser.add_argument('--gff_url', required=True, help="URL of the genome annotations (GFF3 format).")
+#     parser.add_argument('--output_dir', default="/var/www/html", help="Output directory for JBrowse data.")
+#     parser.add_argument('--strain', required=True, help="strain of Influenza A virus (H1N1, H3N2).")
+#     parser.add_argument('--date', required=True, help="date identifier for the genome (e.g., 2015).")
+#     args = parser.parse_args()
+
+#     process_genome(args.fasta_url, args.gff_url, args.output_dir, args.strain, args.date)
