@@ -86,7 +86,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Process genomic data.")
     parser.add_argument("--fasta_url", required=True, help="URL to the FASTA file")
     parser.add_argument("--gff_url", required=True, help="URL to the GFF file")
-    parser.add_argument("--output_dir", default="./", help="Directory for output files")
+    parser.add_argument("--output_dir", default="/var/www/html/jbrowse2", help="Directory for output files")
     parser.add_argument("--date", required=True, help="Date of the genome data (e.g., 2019_04_30)")
     parser.add_argument("--strain", required=True, help="Strain of the virus (e.g., H1N1, H3N2)")
     return parser.parse_args()
