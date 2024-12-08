@@ -15,9 +15,8 @@ def run_command(command, description):
         print(f"Return code: {e.returncode}")
         print(f"Output: {e.output}")
         exit(1)
-    
-
-def process_genome(fasta_url, gff_url, output_dir, strain, date):
+        
+def process_genome2(fasta_url, gff_url, output_dir, strain, date):
     """Download, process, and load genome data for JBrowse."""
     # Step 1: Download and process reference genome
     fasta_file = f"GCA_{date}_genomic.fna.gz"
@@ -40,11 +39,13 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
         "Indexing reference genome"
     )
 
-    # Step 2: Load genome into JBrowse
+    # Step 2: Load genome into the same assembly in JBrowse
     jbrowse_out = os.path.join(output_dir, "jbrowse2")
+    
+    # Use the same assembly name for all genomes (e.g., 'all_genomes_assembly')
     run_command(
-        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy",
-        "Loading genome into JBrowse"
+        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy --name all_genomes_assembly",
+        "Loading genome into the same assembly"
     )
 
     # Step 3: Download and process genome annotations
@@ -73,10 +74,10 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
         "Indexing compressed annotations with tabix"
     )
 
-    # Step 4: Load annotation track into JBrowse
+    # Step 4: Load annotation track into the same assembly in JBrowse
     run_command(
-        f"jbrowse add-track {gff_bgzip} --out {jbrowse_out} --load copy --assemblyNames H3N2_{date}",
-        "Loading annotation track into JBrowse"
+        f"jbrowse add-track {gff_bgzip} --out {jbrowse_out} --load copy --assemblyNames all_genomes_assembly",
+        "Loading annotation track into the same assembly"
     )
 
     # Step 5: Index for search-by-gene
@@ -98,8 +99,8 @@ def main():
     args = parse_args()
     print(f"Processing genome data for strain {args.strain} from date {args.date}.")
     
-    # Call the process_genome function with the parsed arguments
-    process_genome(
+    # Call the process_genome2 function with the parsed arguments
+    process_genome2(
         fasta_url=args.fasta_url,
         gff_url=args.gff_url,
         output_dir=args.output_dir,
