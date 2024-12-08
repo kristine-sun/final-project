@@ -76,11 +76,10 @@ npm -v # should print `10.8.2`
 Run the following commands in your shell. This uses the Node.js package manager to download the latest stable version of the jbrowse command line tool, then prints out its version. This should work for both macOS and Linux.
 
 ```
-sudo npm install -g @jbrowse/cli
+npm install -g @jbrowse/cli
 jbrowse --version
 ```
 
-You can also try installing using just `npm install -g @jbrowse/cli` if the sudo version doesn't run. 
 
 ### 2.3. System dependencies
 Install wget (if not already installed), apache2, samtools, and tabix. 
@@ -129,14 +128,9 @@ Verify that one of these folders exists (it should currently be empty, except po
 
 Take note of what the folder is, and use the command below to store it as a command-line variable. We can reference this variable in the rest of our code, to save on typing. You will need to re-run the `export` if you restart your terminal session!
 ```
-# be sure to replace the path with your actual true path!
 export APACHE_ROOT='/var/www/html'
 ```
 
-If you are really struggling to find the APACHE_ROOT folder, you could try searching for it.
-```
-sudo find / -name "www" 2>/dev/null
-```
 
 ### 3.5. Download JBrowse 2
 First create a temporary working directory as a staging area. You can use any folder you want, but moving forward we are assuming you created ~/tmp in your home folder.
@@ -152,68 +146,70 @@ Next, download and copy over JBrowse 2 into the apache2 root dir, setting the ow
 
 ```
 jbrowse create output_folder
-sudo mv output_folder $APACHE_ROOT/jbrowse2
+sudo mv output_folder/* $APACHE_ROOT/jbrowse2
 sudo chown -R $(whoami) $APACHE_ROOT/jbrowse2
 ```
+
 
 ### 3.6. Test your jbrowse install
 In your browser, now type in `http://yourhost/jbrowse2/`, where yourhost is either localhost or the IP address from earlier. Now you should see the words "**It worked!**" with a green box underneath saying "JBrowse 2 is installed." with some additional details. 
 
 ## 4. Load and process test data
-### 4.1. Download and process reference genome
-Make sure you are in the temporary folder you created, then download the Influenza A H3N2 genome in fasta format. The instructions below will start with the 2015 file and repeat for the remaining files similarly.
+Make sure you are in the temporary folder you created, then download and process the relevant Influenza A genome using the `process_genome.py` script. The instructions below detail how to fetch and set up the script in terminal and then include the arguments necessary to load and process the specific data.
 
-2015:
+1. Fetch Script (Raw File)
 ```
-export FASTA_ROOT=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/771/805/
-wget $FASTA_ROOT/GCA_038771805.1_ASM3877180v1/GCA_038771805.1_ASM3877180v1_genomic.fna.gz
+wget https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/process_genome.py
 ```
-
-Unzip the gzipped reference genome, rename it, and index it. This will allow jbrowse to rapidly access any part of the reference just by coordinate.
-
-2015:
+2. Set up python virtual environment
 ```
-gunzip GCA_038771805.1_ASM3877180v1_genomic.fna.gz
-mv GCA_038771805.1_ASM3877180v1_genomic.fna H3N2_2015.fna
-samtools faidx H3N2_2015.fna
+sudo apt update
+sudo apt install python3-venv -y
 ```
-
-### 4.3. Load genome into jbrowse
-
+3. Install dependencies
 ```
-jbrowse add-assembly H3N2_2015.fna --out $APACHE_ROOT/jbrowse2 --load copy
+pip install --upgrade pip
 ```
-## 4.4. Download and process genome annotations
-
-Still in the temporary folder, download ENSEMBLE genome annotations in the GFF3 format.
-
+4. Make script executable
 ```
-export GFF_ROOT=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/771/805/GCA_038771805.1_ASM3877180v1/
-wget $GFF_ROOT/GCA_038771805.1_ASM3877180v1_genomic.gff.gz
-gunzip GCA_038771805.1_ASM3877180v1_genomic.gff.gz
+chmod +x process_genome.py
 ```
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/771/805/GCA_038771805.1_ASM3877180v1/GCA_038771805.1_ASM3877180v1_genomic.gbff.gz
+5. Run script
 
-Use jbrowse to sort the annotations. jbrowse sort-gff sorts the GFF3 by refName (first column) and start position (fourth column), while making sure to preserve the header lines at the top of the file (which start with “#”). We then compress the GFF with bgzip (block gzip, which zips files into little blocks for rapid access), and index with tabix. The tabix command outputs a file named genes.gff.gz.tbi in the same directory, and we then refer to “genes.gff.gz” as a “tabix indexed GFF3 file”.
-
+### nucleotide sequences
+H1N1, April 30, 2009:
 ```
-jbrowse sort-gff GCA_038771805.1_ASM3877180v1_genomic.gff > 2015_genes.gff
-bgzip 2015_genes.gff
-tabix 2015_genes.gff.gz
+python3 process_genome.py \
+    --fasta_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/517/505/GCA_038517505.1_ASM3851750v1/GCA_038517505.1_ASM3851750v1_genomic.fna.gz" \
+    --gff_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/517/505/GCA_038517505.1_ASM3851750v1/GCA_038517505.1_ASM3851750v1_genomic.gff.gz" \
+    --output_dir "/var/www/html/" \
+    --strain "H1N1" \
+    --date "2009_04_30"
 ```
-
-### 4.5. Load annotation track into jbrowse
-
+H1N1, April 27, 2009:
 ```
-jbrowse add-track 2015_genes.gff.gz --out /var/www/html/jbrowse2 --load copy --assemblyNames H3N2_2015
+python3 process_genome.py \
+    --fasta_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/513/145/GCA_038513145.1_ASM3851314v1/GCA_038513145.1_ASM3851314v1_genomic.fna.gz" \
+    --gff_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/513/145/GCA_038513145.1_ASM3851314v1/GCA_038513145.1_ASM3851314v1_genomic.gff.gz" \
+    --output_dir "/var/www/html/" \
+    --strain "H1N1" \
+    --date "2009_04_27"
 ```
-
-### 4.6. Index for search-by-gene
-
-Run the “jbrowse text-index” command to allow users to search by gene name within JBrowse 2.
-
-In the temporary work directory, run the following command.
-
+H3N2, January 10, 2013:
 ```
-jbrowse text-index --out $APACHE_ROOT/jbrowse2
+python3 process_genome.py \
+    --fasta_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/671/225/GCA_038671225.1_ASM3867122v1/GCA_038671225.1_ASM3867122v1_genomic.fna.gz" \
+    --gff_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/671/225/GCA_038671225.1_ASM3867122v1/GCA_038671225.1_ASM3867122v1_genomic.gff.gz" \
+    --output_dir "/var/www/html/" \
+    --strain "H3N2" \
+    --date "2013_01_10"
+```
+H3N2, February 01, 2013:
+```
+python3 process_genome.py \
+    --fasta_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/678/235/GCA_038678235.1_ASM3867823v1/GCA_038678235.1_ASM3867823v1_genomic.fna.gz" \
+    --gff_url "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/038/678/235/GCA_038678235.1_ASM3867823v1/GCA_038678235.1_ASM3867823v1_genomic.gff.gz" \
+    --output_dir "/var/www/html/" \
+    --strain "H3N2" \
+    --date "2013_02_01"
 ```
