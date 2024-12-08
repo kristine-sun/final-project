@@ -44,7 +44,7 @@ def process_genome2(fasta_url, gff_url, output_dir, strain, date):
     
     # Use the same assembly name for all genomes (e.g., 'all_genomes_assembly')
     run_command(
-        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy --name all_genomes_assembly --force",
+        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy --name all_genomes_assembly",
         "Loading genome into the same assembly"
     )
 
