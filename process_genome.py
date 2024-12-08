@@ -43,7 +43,7 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
     # Step 2: Load genome into JBrowse
     jbrowse_out = os.path.join(output_dir, "jbrowse2")
     run_command(
-        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy --force",
+        f"jbrowse add-assembly {fasta_unzipped} --out {jbrowse_out} --load copy",
         "Loading genome into JBrowse"
     )
 
