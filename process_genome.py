@@ -94,18 +94,18 @@ def parse_args():
     parser.add_argument("--strain", required=True, help="Strain of the virus (e.g., H1N1, H3N2)")
     return parser.parse_args()
 
-# def main():
-#     args = parse_args()
-#     print(f"Processing genome data for strain {args.strain} from date {args.date}.")
+def main():
+    args = parse_args()
+    print(f"Processing genome data for strain {args.strain} from date {args.date}.")
     
-#     # Call the process_genome function with the parsed arguments
-#     process_genome(
-#         fasta_url=args.fasta_url,
-#         gff_url=args.gff_url,
-#         output_dir=args.output_dir,
-#         strain=args.strain,
-#         date=args.date
-#     )
+    # Call the process_genome function with the parsed arguments
+    process_genome(
+        fasta_url=args.fasta_url,
+        gff_url=args.gff_url,
+        output_dir=args.output_dir,
+        strain=args.strain,
+        date=args.date
+    )
 # def main():
 #     args = parse_args()
 #     print(f"Processing genome data for strain {args.strain} from date {args.date}.")
@@ -124,11 +124,6 @@ def parse_args():
     
 #     # Debugging line to confirm end of process
 #     print("Genome processing completed.")
-
-def process_genome(fasta_url, gff_url, output_dir, strain, date):
-    print(f"Debug: In process_genome with strain {strain} and date {date}")
-    # Simulate a step
-    print(f"Debug: Would process {fasta_url} and {gff_url}")
     
 if __name__ == "__main__":
      main()
