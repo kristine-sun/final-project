@@ -75,7 +75,7 @@ def process_genome(fasta_url, gff_url, output_dir, strain, date):
 
     # Step 4: Load annotation track into JBrowse
     run_command(
-        f"jbrowse add-track {gff_bgzip} --out {jbrowse_out} --load copy --assemblyNames H3N2_{date}" --force,
+        f"jbrowse add-track {gff_bgzip} --out {jbrowse_out} --load copy --assemblyNames H3N2_{date}",
         "Loading annotation track into JBrowse"
     )
 
