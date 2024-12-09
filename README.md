@@ -238,17 +238,3 @@ jbrowse add-track ./cluster_alignment.bed --out $APACHE_ROOT/jbrowse2 --load cop
 ```
 jbrowse text-index --out $APACHE_ROOT/jbrowse2 --force
 ```
-
-### WIG file
-1. Download file from github
-```
-wget https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/cluster_alignment.wig
-```
-2. Load annotation track into jbrowse
-```
-jbrowse add-track ./cluster_alignment.wig --out $APACHE_ROOT/jbrowse2 --load copy --assemblyNames "H3N2_2013_01_10.fna" --force
-```
-3. Index for search-by-gene
-```
-jbrowse text-index --out $APACHE_ROOT/jbrowse2 --force
-```
