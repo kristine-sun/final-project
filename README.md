@@ -213,6 +213,11 @@ python3 process_genome.py \
     --strain "H3N2" \
     --date "2013_02_01"
 ```
+### Troubleshooting & Tips for loading and processing data
+1. Sometimes, due to compressing/decompressing or another processing issue, the file size can be zero or very small. If this case happens, delete the file and download it again.
+
+2. If the terminal says annotations are successfully added to track but are not showing up on the jbrowse site, it might be because the file is empty or the annotations don’t match the genome.
+
 
 ## Multiple Sequence Alignment
 To run multiple sequence alignment and download the files to be loaded into the JBrowse site, follow the instructions in `notebook name` included in the repository.
