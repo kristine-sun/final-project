@@ -2,33 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BioE131 Final Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influenza Analysis Dashboard</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
+            color: #333;
+            background-color: #f9f9f9;
         }
 
+        /* Header */
         h1 {
-            font-size: 2.8em;
-            margin-bottom: 40px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #0056b3;
         }
 
+        h2 {
+            font-size: 1.8em;
+            margin: 30px 0 20px;
+            color: #444;
+        }
+
+        /* Paragraph */
         p {
             line-height: 1.6;
             margin: 20px auto;
             max-width: 800px;
-            text-align: center;
         }
 
+        /* Buttons */
+        .button-container {
+            margin: 30px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 12px 20px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
     </style>
 </head>
 <body>
-    <h1>Influenza A H1N1 & H3N2 Analysis Dashboard</h1>
-    <p>Welcome to our interactive dashboard, where we have provided various analyses and annotations of strains of Influenza A H1N1 from the 2009 outbreak and Influenza A H3N2 (yearly flu affecting humans) from the 2013 outbreak.</p>
+    <!-- Header Section -->
+    <h1>Influenza Analysis Dashboard</h1>
+    <p>Welcome to our interactive platform for exploring Influenza A H1N1 and H3N2 strains. Dive into annotated datasets, visualize alignments, and review detailed analysis.</p>
 
+    <!-- Feature Section -->
+    <h2>Features</h2>
+    <div class="button-container">
+        <a href="jbrowse/index.html" target="_blank">Explore Genome Annotations</a>
+        <a href="alignments.html" target="_blank">View Multiple Sequence Alignments</a>
+        <a href="README.pdf" target="_blank">Read Instructions</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        © 2024 BioE131 Final Project | Developed for Educational Purposes
+    </footer>
 </body>
 </html>
