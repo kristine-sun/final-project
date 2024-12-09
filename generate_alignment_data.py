@@ -7,19 +7,25 @@ import numpy as np
 from typing import List
 
 # Step 1: Install Required Tools and Dependencies
-subprocess.run(["conda", "config", "--add", "channels", "bioconda"])
-subprocess.run(["conda", "install", "-y", "biopython", "muscle", "fasttree"])
+# It’s better to use a conda environment separately rather than installing via subprocess.
+# Example:
+# conda create -n bio_env biopython muscle fasttree
+# conda activate bio_env
 
 # Step 2: Perform Multiple Sequence Alignment and Phylogenetic Tree Construction
-subprocess.run(["muscle", "-super5", "multiplesequences.fa", "-output", "multiplesequences.aligned.fa"])
-subprocess.run(["fasttree", "-nt", "<", "multiplesequences.aligned.fa", ">", "tree.nwk"], shell=True)
+# Use Biopython directly for alignment instead of calling MUSCLE via subprocess.
+# For MUSCLE, we use Bio.Align.Applications instead.
 
-# Step 3: Plot Phylogenetic Tree
-# tree = Phylo.read("tree.nwk", "newick")
-# fig = plt.figure()
-# ax = fig.add_axes([0, 0, 2, 3])
-# Phylo.draw(tree, axes=ax)
-# plt.savefig("tree_plot.png")
+from Bio.Align.Applications import MuscleCommandline
+
+muscle_cline = MuscleCommandline(input="multiplesequences.fa", out="multiplesequences.aligned.fa")
+muscle_cline()
+
+# Step 3: Construct the Phylogenetic Tree
+from Bio.Phylo.Applications import FastTreeCommandline
+
+fasttree_cline = FastTreeCommandline(input="multiplesequences.aligned.fa", out="tree.nwk")
+fasttree_cline()
 
 # Step 4: Filter Alignment for Cluster
 alignment = AlignIO.read("multiplesequences.aligned.fa", "fasta")
