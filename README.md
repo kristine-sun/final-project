@@ -224,6 +224,17 @@ To run multiple sequence alignment and download the files to be loaded into the 
 
 ### Loading files to JBrowse2
 
+### BED file
 ```
-wget https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/generating_alignment.ipynb
+wget https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/cluster_alignment.bed
+```
+```
+sudo mv ~/tmp/cluster_alignment.bed /var/www/html/jbrowse2/
+```
+jbrowse add-track ./cluster_alignment.bed --out $APACHE_ROOT/jbrowse2 --load copy --assemblyNames "H3N2_2013_01_10.fna" --force
+jbrowse text-index --out $APACHE_ROOT/jbrowse2 --force
+
+### WIG file
+```
+https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/cluster_alignment.wig
 ```
