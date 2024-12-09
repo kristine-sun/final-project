@@ -1,0 +1,229 @@
+{
+  "assemblies": [
+    {
+      "name": "H1N1_2019_04_30.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "H1N1_2019_04_30.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "H1N1_2019_04_30.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "H1N1_2019_04_30.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "H1N1_2019_04_27.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "H1N1_2019_04_27.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "H1N1_2019_04_27.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "H1N1_2019_04_27.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "H3N2_2013_01_10.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "H3N2_2013_01_10.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "H3N2_2013_01_10.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "H3N2_2013_01_10.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "H3N2_2013_02_01.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "H3N2_2013_02_01.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "H3N2_2013_02_01.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "H3N2_2013_02_01.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "2019_04_30_genes.gff",
+      "name": "2019_04_30_genes.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "2019_04_30_genes.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "2019_04_30_genes.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "H1N1_2019_04_30"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "2019_04_27_genes.gff",
+      "name": "2019_04_27_genes.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "2019_04_27_genes.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "2019_04_27_genes.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "H1N1_2019_04_27"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "2013_01_10_genes.gff",
+      "name": "2013_01_10_genes.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "2013_01_10_genes.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "2013_01_10_genes.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "H3N2_2013_01_10"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "2013_02_01_genes.gff",
+      "name": "2013_02_01_genes.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "2013_02_01_genes.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "2013_02_01_genes.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "H3N2_2013_02_01"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "2009_04_30-H1N1.gff",
+      "name": "2009_04_30-H1N1.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "2009_04_30-H1N1.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "2009_04_30-H1N1.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "H1N1_2019_04_30.fna"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCA_2019_04_30_genomic",
+      "name": "GCA_2019_04_30_genomic",
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "GCA_2019_04_30_genomic.gff",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": [
+        "H1N1_2019_04_30.fna"
+      ]
+    }
+  ],
+  "aggregateTextSearchAdapters": [
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "H1N1_2019_04_30.fna-index",
+      "ixFilePath": {
+        "uri": "trix/H1N1_2019_04_30.fna.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/H1N1_2019_04_30.fna.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/H1N1_2019_04_30.fna_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "H1N1_2019_04_30.fna"
+      ]
+    }
+  ]
+}
