@@ -1,0 +1,57 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+#!genome-build ASM3851750v1
+#!genome-build-accession NCBI_Assembly:GCA_038517505.1
+##sequence-region CY074482.1 1 2315
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074482.1	Genbank	region	1	2315	.	+	.	ID=CY074482.1:1..2315;Dbxref=taxon:765515;Name=1;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=1;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074482.1	Genbank	gene	14	2293	.	+	.	ID=gene-PB2;Name=PB2;gbkey=Gene;gene=PB2;gene_biotype=protein_coding
+CY074482.1	Genbank	CDS	14	2293	.	+	0	ID=cds-ADN89599.1;Parent=gene-PB2;Dbxref=NCBI_GP:ADN89599.1;Name=ADN89599.1;gbkey=CDS;gene=PB2;product=polymerase PB2;protein_id=ADN89599.1
+##sequence-region CY074481.1 1 2314
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074481.1	Genbank	region	1	2314	.	+	.	ID=CY074481.1:1..2314;Dbxref=taxon:765515;Name=2;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=2;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074481.1	Genbank	gene	10	2283	.	+	.	ID=gene-PB1;Name=PB1;gbkey=Gene;gene=PB1;gene_biotype=protein_coding
+CY074481.1	Genbank	CDS	10	2283	.	+	0	ID=cds-ADN89597.1;Parent=gene-PB1;Dbxref=NCBI_GP:ADN89597.1;Name=ADN89597.1;gbkey=CDS;gene=PB1;product=polymerase PB1;protein_id=ADN89597.1
+CY074481.1	Genbank	gene	104	277	.	+	.	ID=gene-PB1-F2;Name=PB1-F2;gbkey=Gene;gene=PB1-F2;gene_biotype=protein_coding
+CY074481.1	Genbank	CDS	104	277	.	+	0	ID=cds-ADN89598.1;Parent=gene-PB1-F2;Dbxref=NCBI_GP:ADN89598.1;Name=ADN89598.1;gbkey=CDS;gene=PB1-F2;product=PB1-F2 protein;protein_id=ADN89598.1
+##sequence-region CY074480.1 1 2206
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074480.1	Genbank	region	1	2206	.	+	.	ID=CY074480.1:1..2206;Dbxref=taxon:765515;Name=3;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=3;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074480.1	Genbank	gene	11	2161	.	+	.	ID=gene-PA;Name=PA;gbkey=Gene;gene=PA;gene_biotype=protein_coding
+CY074480.1	Genbank	CDS	11	2161	.	+	0	ID=cds-ADN89596.1;Parent=gene-PA;Dbxref=NCBI_GP:ADN89596.1;Name=ADN89596.1;gbkey=CDS;gene=PA;product=polymerase PA;protein_id=ADN89596.1
+##sequence-region CY074475.1 1 1748
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074475.1	Genbank	region	1	1748	.	+	.	ID=CY074475.1:1..1748;Dbxref=taxon:765515;Name=4;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=4;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074475.1	Genbank	gene	18	1715	.	+	.	ID=gene-HA;Name=HA;gbkey=Gene;gene=HA;gene_biotype=protein_coding
+CY074475.1	Genbank	CDS	18	1715	.	+	0	ID=cds-ADN89589.1;Parent=gene-HA;Dbxref=NCBI_GP:ADN89589.1;Name=ADN89589.1;gbkey=CDS;gene=HA;product=hemagglutinin;protein_id=ADN89589.1
+CY074475.1	Genbank	signal_peptide_region_of_CDS	18	68	.	+	.	ID=id-ADN89589.1:1..17;Parent=cds-ADN89589.1;gbkey=Prot
+CY074475.1	Genbank	mature_protein_region_of_CDS	69	1046	.	+	.	ID=id-ADN89589.1:18..343;Parent=cds-ADN89589.1;gbkey=Prot;product=HA1
+CY074475.1	Genbank	mature_protein_region_of_CDS	1047	1712	.	+	.	ID=id-ADN89589.1:344..565;Parent=cds-ADN89589.1;gbkey=Prot;product=HA2
+##sequence-region CY074478.1 1 1538
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074478.1	Genbank	region	1	1538	.	+	.	ID=CY074478.1:1..1538;Dbxref=taxon:765515;Name=5;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=5;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074478.1	Genbank	gene	31	1527	.	+	.	ID=gene-NP;Name=NP;gbkey=Gene;gene=NP;gene_biotype=protein_coding
+CY074478.1	Genbank	CDS	31	1527	.	+	0	ID=cds-ADN89593.1;Parent=gene-NP;Dbxref=NCBI_GP:ADN89593.1;Name=ADN89593.1;gbkey=CDS;gene=NP;product=nucleocapsid protein;protein_id=ADN89593.1
+##sequence-region CY074477.1 1 1433
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074477.1	Genbank	region	1	1433	.	+	.	ID=CY074477.1:1..1433;Dbxref=taxon:765515;Name=6;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=6;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074477.1	Genbank	gene	8	1420	.	+	.	ID=gene-NA;Name=NA;gbkey=Gene;gene=NA;gene_biotype=protein_coding
+CY074477.1	Genbank	CDS	8	1420	.	+	0	ID=cds-ADN89592.1;Parent=gene-NA;Dbxref=NCBI_GP:ADN89592.1;Name=ADN89592.1;gbkey=CDS;gene=NA;product=neuraminidase;protein_id=ADN89592.1
+##sequence-region CY074476.1 1 999
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074476.1	Genbank	region	1	999	.	+	.	ID=CY074476.1:1..999;Dbxref=taxon:765515;Name=7;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=7;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074476.1	Genbank	gene	11	992	.	+	.	ID=gene-M2;Name=M2;gbkey=Gene;gene=M2;gene_biotype=protein_coding
+CY074476.1	Genbank	CDS	11	36	.	+	0	ID=cds-ADN89591.1;Parent=gene-M2;Dbxref=NCBI_GP:ADN89591.1;Name=ADN89591.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=ADN89591.1
+CY074476.1	Genbank	CDS	725	992	.	+	1	ID=cds-ADN89591.1;Parent=gene-M2;Dbxref=NCBI_GP:ADN89591.1;Name=ADN89591.1;gbkey=CDS;gene=M2;product=matrix protein 2;protein_id=ADN89591.1
+CY074476.1	Genbank	gene	11	769	.	+	.	ID=gene-M1;Name=M1;gbkey=Gene;gene=M1;gene_biotype=protein_coding
+CY074476.1	Genbank	CDS	11	769	.	+	0	ID=cds-ADN89590.1;Parent=gene-M1;Dbxref=NCBI_GP:ADN89590.1;Name=ADN89590.1;gbkey=CDS;gene=M1;product=matrix protein 1;protein_id=ADN89590.1
+##sequence-region CY074479.1 1 863
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=765515
+CY074479.1	Genbank	region	1	863	.	+	.	ID=CY074479.1:1..863;Dbxref=taxon:765515;Name=8;collection-date=30-Apr-2009;country=USA: Alameda;gbkey=Src;lab-host=P0 passage(s);mol_type=viral cRNA;nat-host=human%3B gender M;segment=8;serotype=H1N1;strain=A/California/VRDL290/2009
+CY074479.1	Genbank	gene	12	849	.	+	.	ID=gene-NEP;Name=NEP;gbkey=Gene;gene=NEP;gene_biotype=protein_coding;gene_synonym=NS2
+CY074479.1	Genbank	CDS	12	41	.	+	0	ID=cds-ADN89595.1;Parent=gene-NEP;Dbxref=NCBI_GP:ADN89595.1;Name=ADN89595.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=ADN89595.1
+CY074479.1	Genbank	CDS	514	849	.	+	0	ID=cds-ADN89595.1;Parent=gene-NEP;Dbxref=NCBI_GP:ADN89595.1;Name=ADN89595.1;Note=nonstructural protein 2;gbkey=CDS;gene=NEP;product=nuclear export protein;protein_id=ADN89595.1
+CY074479.1	Genbank	gene	12	704	.	+	.	ID=gene-NS1;Name=NS1;gbkey=Gene;gene=NS1;gene_biotype=protein_coding
+CY074479.1	Genbank	CDS	12	704	.	+	0	ID=cds-ADN89594.1;Parent=gene-NS1;Dbxref=NCBI_GP:ADN89594.1;Name=ADN89594.1;gbkey=CDS;gene=NS1;product=nonstructural protein 1;protein_id=ADN89594.1
+###
