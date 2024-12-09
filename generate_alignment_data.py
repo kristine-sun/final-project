@@ -15,11 +15,11 @@ subprocess.run(["muscle", "-super5", "multiplesequences.fa", "-output", "multipl
 subprocess.run(["fasttree", "-nt", "<", "multiplesequences.aligned.fa", ">", "tree.nwk"], shell=True)
 
 # Step 3: Plot Phylogenetic Tree
-tree = Phylo.read("tree.nwk", "newick")
-fig = plt.figure()
-ax = fig.add_axes([0, 0, 2, 3])
-Phylo.draw(tree, axes=ax)
-plt.savefig("tree_plot.png")
+# tree = Phylo.read("tree.nwk", "newick")
+# fig = plt.figure()
+# ax = fig.add_axes([0, 0, 2, 3])
+# Phylo.draw(tree, axes=ax)
+# plt.savefig("tree_plot.png")
 
 # Step 4: Filter Alignment for Cluster
 alignment = AlignIO.read("multiplesequences.aligned.fa", "fasta")
