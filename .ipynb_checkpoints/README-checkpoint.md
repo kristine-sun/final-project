@@ -223,7 +223,3 @@ python3 process_genome.py \
 To run multiple sequence alignment and download the files to be loaded into the JBrowse site from scratch, follow the instructions in `generating_alignment.ipynb` included in the repository. However, in this case we have already generated the files so you can skip to the loading instructions below.
 
 ### Loading files to JBrowse2
-
-```
-wget https://raw.githubusercontent.com/kristine-sun/final-project/refs/heads/main/generating_alignment.ipynb
-```
