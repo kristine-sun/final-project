@@ -5,77 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Influenza Analysis Dashboard</title>
     <style>
-        /* General Styles */
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
             color: #333;
-            background-color: #f9f9f9;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px 0;
         }
 
         /* Header */
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
+            color: #0d47a1;
             margin-bottom: 20px;
-            color: #0056b3;
         }
 
         h2 {
-            font-size: 1.8em;
-            margin: 30px 0 20px;
-            color: #444;
+            font-size: 2em;
+            color: #1565c0;
+            margin: 30px 0 15px;
         }
 
-        /* Paragraph */
         p {
-            line-height: 1.6;
-            margin: 20px auto;
-            max-width: 800px;
+            line-height: 1.8;
+            color: #444;
+            margin: 10px auto 20px;
         }
 
-        /* Buttons */
+        /* Button Styling */
         .button-container {
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
-        a {
-            display: inline-block;
-            margin: 10px 15px;
+        .button-container a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
             padding: 12px 20px;
             font-size: 1em;
             text-decoration: none;
             color: #fff;
-            background-color: #007bff;
+            background-color: #1e88e5;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: transform 0.2s, background-color 0.3s;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
-        a:hover {
-            background-color: #0056b3;
+        .button-container a:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+        }
+
+        .button-container a span {
+            margin-left: 8px;
         }
 
         /* Footer */
         footer {
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 0.9em;
             color: #777;
+        }
+
+        /* Icon Styling (Optional) */
+        @font-face {
+            font-family: "Material Icons";
+            src: url("https://fonts.gstatic.com/s/materialicons/v131/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2") format("woff2");
+        }
+
+        .material-icons {
+            font-family: "Material Icons";
+            font-size: 1.2em;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <h1>Influenza Analysis Dashboard</h1>
-    <p>Welcome to our interactive platform for exploring Influenza A H1N1 and H3N2 strains. Dive into annotated datasets, visualize alignments, and review detailed analysis.</p>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <h1>Influenza Analysis Dashboard</h1>
+        <p>Welcome to our interactive platform for exploring Influenza A H1N1 and H3N2 strains. Dive into annotated datasets, visualize alignments, and review detailed analysis.</p>
 
-    <!-- Feature Section -->
-    <h2>Features</h2>
-    <div class="button-container">
-        <a href="jbrowse/index.html" target="_blank">Explore Genome Annotations</a>
-        <a href="alignments.html" target="_blank">View Multiple Sequence Alignments</a>
-        <a href="README.pdf" target="_blank">Read Instructions</a>
+        <!-- Features Section -->
+        <h2>Features</h2>
+        <div class="button-container">
+            <a href="https://username.github.io/repository-name/jbrowse2/" target="_blank">
+                🚀 Launch JBrowse2
+            </a>
+            <a href="https://github.com/kristine-sun/final-project/blob/main/README.md" target="_blank">
+                📖 Read Instructions
+            </a>
+        </div>
+        
     </div>
 
     <!-- Footer Section -->
