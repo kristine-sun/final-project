@@ -203,36 +203,6 @@
       "assemblyNames": [
         "H1N1_2019_04_30.fna"
       ]
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "cluster_alignment.bed",
-      "name": "Cluster Alignment (BED)",
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "cluster_alignment.bed",
-          "locationType": "UriLocation"
-        }
-      },
-      "assemblyNames": [
-        "H1N1_2009_04_30.fna"
-      ]
-    },
-    {
-      "type": "WiggleTrack",
-      "trackId": "cluster_alignment.wig",
-      "name": "Cluster Alignment (WIG)",
-      "adapter": {
-        "type": "WiggleFileAdapter",
-        "wigLocation": {
-          "uri": "cluster_alignment.wig",
-          "locationType": "UriLocation"
-        }
-      },
-      "assemblyNames": [
-        "H1N1_2009_04_30.fna"
-      ]
     }
   ],
   "aggregateTextSearchAdapters": [
